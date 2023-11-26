@@ -14,6 +14,13 @@
 		276D401E2B112E5D00AD794F /* SweatStakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D401D2B112E5D00AD794F /* SweatStakeTests.swift */; };
 		276D40282B112E5D00AD794F /* SweatStakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D40272B112E5D00AD794F /* SweatStakeUITests.swift */; };
 		276D402A2B112E5D00AD794F /* SweatStakeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D40292B112E5D00AD794F /* SweatStakeUITestsLaunchTests.swift */; };
+		276D40372B112FB500AD794F /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D40362B112FB500AD794F /* WorkoutViewModel.swift */; };
+		276D40392B112FD800AD794F /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D40382B112FD800AD794F /* WorkoutModel.swift */; };
+		276D403B2B1134A800AD794F /* HKWorkoutActivityType+Descriptions.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D403A2B1134A800AD794F /* HKWorkoutActivityType+Descriptions.swift.swift */; };
+		27789ABC2B12B05D00A21F3F /* MockWorkoutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789ABB2B12B05D00A21F3F /* MockWorkoutData.swift */; };
+		27789AC02B12B6A000A21F3F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789ABF2B12B6A000A21F3F /* Colors.swift */; };
+		27789AC22B12C1D300A21F3F /* WorkoutCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789AC12B12C1D300A21F3F /* WorkoutCounterView.swift */; };
+		27789AC42B12C1DF00A21F3F /* MissedDaysCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789AC32B12C1DF00A21F3F /* MissedDaysCounterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +52,15 @@
 		276D40232B112E5D00AD794F /* SweatStakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SweatStakeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		276D40272B112E5D00AD794F /* SweatStakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweatStakeUITests.swift; sourceTree = "<group>"; };
 		276D40292B112E5D00AD794F /* SweatStakeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweatStakeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		276D40362B112FB500AD794F /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
+		276D40382B112FD800AD794F /* WorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
+		276D403A2B1134A800AD794F /* HKWorkoutActivityType+Descriptions.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HKWorkoutActivityType+Descriptions.swift.swift"; sourceTree = "<group>"; };
+		27789A8B2B12A83400A21F3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		27789A8C2B12A85700A21F3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		27789ABB2B12B05D00A21F3F /* MockWorkoutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWorkoutData.swift; sourceTree = "<group>"; };
+		27789ABF2B12B6A000A21F3F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		27789AC12B12C1D300A21F3F /* WorkoutCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCounterView.swift; sourceTree = "<group>"; };
+		27789AC32B12C1DF00A21F3F /* MissedDaysCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissedDaysCounterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +111,19 @@
 		276D400A2B112E5C00AD794F /* SweatStake */ = {
 			isa = PBXGroup;
 			children = (
+				27789A8C2B12A85700A21F3F /* Info.plist */,
 				276D400B2B112E5C00AD794F /* SweatStakeApp.swift */,
 				276D400D2B112E5C00AD794F /* ContentView.swift */,
 				276D400F2B112E5D00AD794F /* Assets.xcassets */,
 				276D40112B112E5D00AD794F /* SweatStake.entitlements */,
 				276D40122B112E5D00AD794F /* Preview Content */,
+				276D40362B112FB500AD794F /* WorkoutViewModel.swift */,
+				276D40382B112FD800AD794F /* WorkoutModel.swift */,
+				276D403A2B1134A800AD794F /* HKWorkoutActivityType+Descriptions.swift.swift */,
+				27789ABB2B12B05D00A21F3F /* MockWorkoutData.swift */,
+				27789ABF2B12B6A000A21F3F /* Colors.swift */,
+				27789AC12B12C1D300A21F3F /* WorkoutCounterView.swift */,
+				27789AC32B12C1DF00A21F3F /* MissedDaysCounterView.swift */,
 			);
 			path = SweatStake;
 			sourceTree = "<group>";
@@ -115,6 +139,7 @@
 		276D401C2B112E5D00AD794F /* SweatStakeTests */ = {
 			isa = PBXGroup;
 			children = (
+				27789A8B2B12A83400A21F3F /* Info.plist */,
 				276D401D2B112E5D00AD794F /* SweatStakeTests.swift */,
 			);
 			path = SweatStakeTests;
@@ -192,7 +217,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					276D40072B112E5C00AD794F = {
@@ -260,7 +285,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				276D400E2B112E5C00AD794F /* ContentView.swift in Sources */,
+				27789AC22B12C1D300A21F3F /* WorkoutCounterView.swift in Sources */,
+				276D40392B112FD800AD794F /* WorkoutModel.swift in Sources */,
+				276D40372B112FB500AD794F /* WorkoutViewModel.swift in Sources */,
+				27789AC02B12B6A000A21F3F /* Colors.swift in Sources */,
 				276D400C2B112E5C00AD794F /* SweatStakeApp.swift in Sources */,
+				276D403B2B1134A800AD794F /* HKWorkoutActivityType+Descriptions.swift.swift in Sources */,
+				27789ABC2B12B05D00A21F3F /* MockWorkoutData.swift in Sources */,
+				27789AC42B12C1DF00A21F3F /* MissedDaysCounterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +379,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to update Apple Health data";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -399,6 +436,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to update Apple Health data";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -412,11 +454,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SweatStake/SweatStake.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SweatStake/Preview Content\"";
+				DEVELOPMENT_TEAM = 7MFEPHQA23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SweatStake/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SweatStake;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to be able to update Apple Health data";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -434,11 +484,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gg.hayden.SweatStake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -448,11 +499,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SweatStake/SweatStake.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SweatStake/Preview Content\"";
+				DEVELOPMENT_TEAM = 7MFEPHQA23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SweatStake/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SweatStake;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to be able to update Apple Health data";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -470,11 +529,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gg.hayden.SweatStake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -486,6 +546,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SweatStakeTests/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to be able to update Apple Health data";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
@@ -508,6 +572,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SweatStakeTests/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need access to Apple Health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to be able to update Apple Health data";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
