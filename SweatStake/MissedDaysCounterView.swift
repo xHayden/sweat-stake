@@ -14,13 +14,20 @@ struct MissedDaysCounterView: View {
 
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+            }
+            Spacer()
             Text("$\(missedDays * penaltyPerDay)")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .foregroundColor(missedDays > 0 ? .red : .red)
-            Text("\(missedDays) lil' bitch days")
-                .font(.caption)
+                .foregroundColor(missedDays > 0 ? .red : .green)
+            
+            Text("\(Text("\(missedDays)").foregroundColor(missedDays > 0 ? .red : .green)) lil' bitch day\(Text(missedDays == 1 ? "" : "s")) this streak")
+                .font(.subheadline)
                 .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+            Spacer()
         }
         .padding()
         .background(Color(uiColor: hexStringToUIColor(hex: "#252422")))

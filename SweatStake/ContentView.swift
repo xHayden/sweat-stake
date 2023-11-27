@@ -1,73 +1,69 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var viewModel = WorkoutViewModel()
-    var workouts: [WorkoutDataProtocol]?
-    
-    init(viewModel: WorkoutViewModel = WorkoutViewModel(), workouts: [WorkoutDataProtocol]? = nil) {
-        self.viewModel = viewModel
-        self.workouts = workouts
+    let workoutViewModel: WorkoutViewModel
+    @State private var selectedTab = 1
+
+    init(viewModel: WorkoutViewModel = WorkoutViewModel()) {
+        self.workoutViewModel = viewModel
     }
 
     var body: some View {
-        ScrollView {
-            HStack(spacing: 20) {
-                WorkoutCounterView(totalHours: viewModel.totalWorkoutHoursThisMonth,
-                                   avgWorkoutLength: viewModel.averageWorkoutLength)
-                MissedDaysCounterView(missedDays: viewModel.missedDaysThisMonth,
-                                      penaltyPerDay: 20)
-            }
-            .padding(.vertical)
-            
-            VStack(alignment: .leading, spacing: 10) {
-                ForEach(viewModel.workouts, id: \.id) { workout in
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Image(systemName: "figure.walk")
-                                .foregroundColor(.blue)
-                            Text("Type: \(workout.type.commonName)")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                        }
-                        
-                        HStack {
-                            Image(systemName: "timer")
-                                .foregroundColor(.green)
-                            Text("Duration: \(TimeFormatter.shared.format(seconds: workout.duration ?? 0.0) ?? "N/A")")
-                                .foregroundColor(.white)
-                        }
-                        
-                        HStack {
-                            Image(systemName: "calendar")
-                                .foregroundColor(.red)
-                            Text("Date: \(TimeFormatter.shared.format(date: workout.startDate ?? Date()))")
-                                .foregroundColor(.white)
-                        }
-                    }
-                    .padding([.vertical, .horizontal], 20)
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                    .background(Color(uiColor: hexStringToUIColor(hex: "#252422")))
-                    .cornerRadius(10)
-                    .shadow(radius: 5)
+        NavigationView {
+            VStack {
+                HStack {
+                    NavTabButton(title: "Workouts", isSelected: $selectedTab, tag: 1)
+                    NavTabButton(title: "History", isSelected: $selectedTab, tag: 2)
+                    NavTabButton(title: "Settings", isSelected: $selectedTab, tag: 3)
                 }
-                .background(Color(uiColor: hexStringToUIColor(hex: "#403d39")))
-                .onAppear {
-                    if (workouts == nil) {
-                        viewModel.requestHealthKitAuthorization()
+                .padding([.horizontal])
+                .padding([.vertical], 5)
+                ScrollView {
+                    switch selectedTab {
+                    case 1:
+                        OverviewPageView(workoutViewModel: workoutViewModel)
+                    case 2:
+                        HistoricalPaymentsPageView(workoutViewModel: workoutViewModel)
+                    case 3:
+                        SettingsPageView(workoutViewModel: workoutViewModel)
+                    default:
+                        EmptyView()
                     }
                 }
             }
-            .background(Color.clear)
-            .padding([.horizontal], 20)
+            .background(Color(uiColor: hexStringToUIColor(hex: "#403d39")))
         }
         .background(Color(uiColor: hexStringToUIColor(hex: "#403d39")))
+//        .onAppear {
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+//            dateFormatter.timeZone = TimeZone.current
+//            print("isworkout", workoutViewModel.isWorkoutDay(dateFormatter.date(from: "2023-06-07 5:00")!))
+//            print("isworkout", workoutViewModel.isWorkoutDay(dateFormatter.date(from: "2023-06-07 12:00")!))
+//        }
     }
 }
 
+
+struct NavTabButton: View {
+    var title: String
+    @Binding var isSelected: Int
+    var tag: Int
+
+    var body: some View {
+        Button(action: {
+            self.isSelected = tag
+        }) {
+            Text(title)
+                .foregroundColor(isSelected == tag ? Color(uiColor: hexStringToUIColor(hex: "#FFFFFF")) : Color(uiColor: hexStringToUIColor(hex: "#878787")))
+        }
+    }
+}
+
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: WorkoutViewModel.previewViewModel(),
-                    workouts: MockWorkoutData.generateMockData())
+        ContentView(viewModel: WorkoutViewModel.previewViewModel())
     }
 }
 

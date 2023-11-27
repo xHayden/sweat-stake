@@ -14,13 +14,20 @@ struct WorkoutCounterView: View {
 
     var body: some View {
         VStack {
-            Text("\(totalHours) Hours")
+            HStack {
+                Spacer()
+            }
+            Spacer()
+            Text("\(totalHours) Hour\(Text(totalHours == 1 ? "" : "s")) Total")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
-            Text("Avg. Workout: \(TimeFormatter.shared.format(seconds: avgWorkoutLength) ?? "N/A")")
+                .multilineTextAlignment(.center)
+            
+            Text("Average Workout: \(TimeFormatter.shared.format(seconds: avgWorkoutLength) ?? "N/A")")
                 .font(.caption)
                 .foregroundColor(.white)
+            Spacer()
         }
         .padding()
         .background(Color(uiColor: hexStringToUIColor(hex: "#252422")))

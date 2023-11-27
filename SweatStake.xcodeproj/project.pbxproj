@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273DCD0F2B1312730073F64D /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DCD0E2B1312730073F64D /* WorkoutListView.swift */; };
+		273DCD112B1318EA0073F64D /* HistoricalPaymentsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DCD102B1318EA0073F64D /* HistoricalPaymentsPageView.swift */; };
+		273DCD132B13192A0073F64D /* OverviewPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DCD122B13192A0073F64D /* OverviewPageView.swift */; };
+		273DCD152B13A8B20073F64D /* MonthPaymentDueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DCD142B13A8B20073F64D /* MonthPaymentDueView.swift */; };
+		273DCD172B13F6430073F64D /* SettingsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DCD162B13F6430073F64D /* SettingsPageView.swift */; };
+		273DCD192B143D470073F64D /* TakeBreakDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DCD182B143D470073F64D /* TakeBreakDayView.swift */; };
 		276D400C2B112E5C00AD794F /* SweatStakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D400B2B112E5C00AD794F /* SweatStakeApp.swift */; };
 		276D400E2B112E5C00AD794F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D400D2B112E5C00AD794F /* ContentView.swift */; };
 		276D40102B112E5D00AD794F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276D400F2B112E5D00AD794F /* Assets.xcassets */; };
@@ -21,6 +27,7 @@
 		27789AC02B12B6A000A21F3F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789ABF2B12B6A000A21F3F /* Colors.swift */; };
 		27789AC22B12C1D300A21F3F /* WorkoutCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789AC12B12C1D300A21F3F /* WorkoutCounterView.swift */; };
 		27789AC42B12C1DF00A21F3F /* MissedDaysCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789AC32B12C1DF00A21F3F /* MissedDaysCounterView.swift */; };
+		27789AC62B12CB1E00A21F3F /* WorkoutHistoryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789AC52B12CB1E00A21F3F /* WorkoutHistoryChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		273DCD0E2B1312730073F64D /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
+		273DCD102B1318EA0073F64D /* HistoricalPaymentsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalPaymentsPageView.swift; sourceTree = "<group>"; };
+		273DCD122B13192A0073F64D /* OverviewPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPageView.swift; sourceTree = "<group>"; };
+		273DCD142B13A8B20073F64D /* MonthPaymentDueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPaymentDueView.swift; sourceTree = "<group>"; };
+		273DCD162B13F6430073F64D /* SettingsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageView.swift; sourceTree = "<group>"; };
+		273DCD182B143D470073F64D /* TakeBreakDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeBreakDayView.swift; sourceTree = "<group>"; };
 		276D40082B112E5C00AD794F /* SweatStake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweatStake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276D400B2B112E5C00AD794F /* SweatStakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweatStakeApp.swift; sourceTree = "<group>"; };
 		276D400D2B112E5C00AD794F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +74,7 @@
 		27789ABF2B12B6A000A21F3F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		27789AC12B12C1D300A21F3F /* WorkoutCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCounterView.swift; sourceTree = "<group>"; };
 		27789AC32B12C1DF00A21F3F /* MissedDaysCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissedDaysCounterView.swift; sourceTree = "<group>"; };
+		27789AC52B12CB1E00A21F3F /* WorkoutHistoryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHistoryChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +125,7 @@
 		276D400A2B112E5C00AD794F /* SweatStake */ = {
 			isa = PBXGroup;
 			children = (
+				273DCD162B13F6430073F64D /* SettingsPageView.swift */,
 				27789A8C2B12A85700A21F3F /* Info.plist */,
 				276D400B2B112E5C00AD794F /* SweatStakeApp.swift */,
 				276D400D2B112E5C00AD794F /* ContentView.swift */,
@@ -124,6 +139,12 @@
 				27789ABF2B12B6A000A21F3F /* Colors.swift */,
 				27789AC12B12C1D300A21F3F /* WorkoutCounterView.swift */,
 				27789AC32B12C1DF00A21F3F /* MissedDaysCounterView.swift */,
+				27789AC52B12CB1E00A21F3F /* WorkoutHistoryChartView.swift */,
+				273DCD0E2B1312730073F64D /* WorkoutListView.swift */,
+				273DCD102B1318EA0073F64D /* HistoricalPaymentsPageView.swift */,
+				273DCD122B13192A0073F64D /* OverviewPageView.swift */,
+				273DCD142B13A8B20073F64D /* MonthPaymentDueView.swift */,
+				273DCD182B143D470073F64D /* TakeBreakDayView.swift */,
 			);
 			path = SweatStake;
 			sourceTree = "<group>";
@@ -218,7 +239,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					276D40072B112E5C00AD794F = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -287,12 +308,19 @@
 				276D400E2B112E5C00AD794F /* ContentView.swift in Sources */,
 				27789AC22B12C1D300A21F3F /* WorkoutCounterView.swift in Sources */,
 				276D40392B112FD800AD794F /* WorkoutModel.swift in Sources */,
+				273DCD152B13A8B20073F64D /* MonthPaymentDueView.swift in Sources */,
+				273DCD192B143D470073F64D /* TakeBreakDayView.swift in Sources */,
+				273DCD132B13192A0073F64D /* OverviewPageView.swift in Sources */,
 				276D40372B112FB500AD794F /* WorkoutViewModel.swift in Sources */,
+				273DCD112B1318EA0073F64D /* HistoricalPaymentsPageView.swift in Sources */,
 				27789AC02B12B6A000A21F3F /* Colors.swift in Sources */,
+				273DCD0F2B1312730073F64D /* WorkoutListView.swift in Sources */,
 				276D400C2B112E5C00AD794F /* SweatStakeApp.swift in Sources */,
 				276D403B2B1134A800AD794F /* HKWorkoutActivityType+Descriptions.swift.swift in Sources */,
 				27789ABC2B12B05D00A21F3F /* MockWorkoutData.swift in Sources */,
+				27789AC62B12CB1E00A21F3F /* WorkoutHistoryChartView.swift in Sources */,
 				27789AC42B12C1DF00A21F3F /* MissedDaysCounterView.swift in Sources */,
+				273DCD172B13F6430073F64D /* SettingsPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,9 +390,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -425,9 +455,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -545,6 +577,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SweatStakeTests/Info.plist;
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We need access to Apple Health data";
@@ -571,6 +604,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SweatStakeTests/Info.plist;
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We need access to Apple Health data";
@@ -596,6 +630,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
@@ -617,6 +652,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
