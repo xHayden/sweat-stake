@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273064792B157F2100955DA5 /* MissedDaysMonthCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273064782B157F2100955DA5 /* MissedDaysMonthCounterView.swift */; };
 		273DCD0F2B1312730073F64D /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DCD0E2B1312730073F64D /* WorkoutListView.swift */; };
 		273DCD112B1318EA0073F64D /* HistoricalPaymentsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DCD102B1318EA0073F64D /* HistoricalPaymentsPageView.swift */; };
 		273DCD132B13192A0073F64D /* OverviewPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DCD122B13192A0073F64D /* OverviewPageView.swift */; };
@@ -26,7 +27,7 @@
 		27789ABC2B12B05D00A21F3F /* MockWorkoutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789ABB2B12B05D00A21F3F /* MockWorkoutData.swift */; };
 		27789AC02B12B6A000A21F3F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789ABF2B12B6A000A21F3F /* Colors.swift */; };
 		27789AC22B12C1D300A21F3F /* WorkoutCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789AC12B12C1D300A21F3F /* WorkoutCounterView.swift */; };
-		27789AC42B12C1DF00A21F3F /* MissedDaysCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789AC32B12C1DF00A21F3F /* MissedDaysCounterView.swift */; };
+		27789AC42B12C1DF00A21F3F /* MissedDaysStreakCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789AC32B12C1DF00A21F3F /* MissedDaysStreakCounterView.swift */; };
 		27789AC62B12CB1E00A21F3F /* WorkoutHistoryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27789AC52B12CB1E00A21F3F /* WorkoutHistoryChartView.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		273064782B157F2100955DA5 /* MissedDaysMonthCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissedDaysMonthCounterView.swift; sourceTree = "<group>"; };
 		273DCD0E2B1312730073F64D /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
 		273DCD102B1318EA0073F64D /* HistoricalPaymentsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalPaymentsPageView.swift; sourceTree = "<group>"; };
 		273DCD122B13192A0073F64D /* OverviewPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPageView.swift; sourceTree = "<group>"; };
@@ -73,7 +75,7 @@
 		27789ABB2B12B05D00A21F3F /* MockWorkoutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWorkoutData.swift; sourceTree = "<group>"; };
 		27789ABF2B12B6A000A21F3F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		27789AC12B12C1D300A21F3F /* WorkoutCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCounterView.swift; sourceTree = "<group>"; };
-		27789AC32B12C1DF00A21F3F /* MissedDaysCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissedDaysCounterView.swift; sourceTree = "<group>"; };
+		27789AC32B12C1DF00A21F3F /* MissedDaysStreakCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissedDaysStreakCounterView.swift; sourceTree = "<group>"; };
 		27789AC52B12CB1E00A21F3F /* WorkoutHistoryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHistoryChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,13 +140,14 @@
 				27789ABB2B12B05D00A21F3F /* MockWorkoutData.swift */,
 				27789ABF2B12B6A000A21F3F /* Colors.swift */,
 				27789AC12B12C1D300A21F3F /* WorkoutCounterView.swift */,
-				27789AC32B12C1DF00A21F3F /* MissedDaysCounterView.swift */,
+				27789AC32B12C1DF00A21F3F /* MissedDaysStreakCounterView.swift */,
 				27789AC52B12CB1E00A21F3F /* WorkoutHistoryChartView.swift */,
 				273DCD0E2B1312730073F64D /* WorkoutListView.swift */,
 				273DCD102B1318EA0073F64D /* HistoricalPaymentsPageView.swift */,
 				273DCD122B13192A0073F64D /* OverviewPageView.swift */,
 				273DCD142B13A8B20073F64D /* MonthPaymentDueView.swift */,
 				273DCD182B143D470073F64D /* TakeBreakDayView.swift */,
+				273064782B157F2100955DA5 /* MissedDaysMonthCounterView.swift */,
 			);
 			path = SweatStake;
 			sourceTree = "<group>";
@@ -315,11 +318,12 @@
 				273DCD112B1318EA0073F64D /* HistoricalPaymentsPageView.swift in Sources */,
 				27789AC02B12B6A000A21F3F /* Colors.swift in Sources */,
 				273DCD0F2B1312730073F64D /* WorkoutListView.swift in Sources */,
+				273064792B157F2100955DA5 /* MissedDaysMonthCounterView.swift in Sources */,
 				276D400C2B112E5C00AD794F /* SweatStakeApp.swift in Sources */,
 				276D403B2B1134A800AD794F /* HKWorkoutActivityType+Descriptions.swift.swift in Sources */,
 				27789ABC2B12B05D00A21F3F /* MockWorkoutData.swift in Sources */,
 				27789AC62B12CB1E00A21F3F /* WorkoutHistoryChartView.swift in Sources */,
-				27789AC42B12C1DF00A21F3F /* MissedDaysCounterView.swift in Sources */,
+				27789AC42B12C1DF00A21F3F /* MissedDaysStreakCounterView.swift in Sources */,
 				273DCD172B13F6430073F64D /* SettingsPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,7 +395,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;

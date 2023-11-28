@@ -11,19 +11,21 @@ struct HistoricalPaymentsPageView: View {
     @ObservedObject var workoutViewModel: WorkoutViewModel
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(workoutViewModel.missedWorkoutsByMonth().sorted(by: { $0.key > $1.key }), id: \.key) { monthYearKey, data in
-                    let components = monthYearKey.split(separator: "-").map { Int($0) }
-                    if let year = components[0], let month = components[1] {
-                        MonthPaymentDueView(month: month, year: year, numDaysMissed: data.missedDays, numStreakDays: data.streakDays,
-                                            workoutViewModel: workoutViewModel
-                        )
+            ScrollView {
+                VStack {
+                    ForEach(workoutViewModel.missedWorkoutsByMonth().sorted(by: { $0.key > $1.key }), id: \.key) { monthYearKey, data in
+                        let components = monthYearKey.split(separator: "-").map { Int($0) }
+                        if let year = components[0], let month = components[1] {
+                            if !workoutViewModel.hideEmptyMonths || (workoutViewModel.hideEmptyMonths && (data.missedDays != 0 || data.streakDays != 0)) {
+                                MonthPaymentDueView(month: month, year: year, numDaysMissed: data.missedDays, numStreakDays: data.streakDays,
+                                                    workoutViewModel: workoutViewModel
+                                )
+                            }
+                        }
                     }
                 }
             }
         }
-    }
     
     init(workoutViewModel: WorkoutViewModel) {
         self.workoutViewModel = workoutViewModel

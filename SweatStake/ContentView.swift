@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     let workoutViewModel: WorkoutViewModel
-    @State private var selectedTab = 1
+    @AppStorage("selectedTab") private var selectedTab: Int = 1
 
     init(viewModel: WorkoutViewModel = WorkoutViewModel()) {
         self.workoutViewModel = viewModel
@@ -11,13 +11,15 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    NavTabButton(title: "Workouts", isSelected: $selectedTab, tag: 1)
-                    NavTabButton(title: "History", isSelected: $selectedTab, tag: 2)
-                    NavTabButton(title: "Settings", isSelected: $selectedTab, tag: 3)
-                }
-                .padding([.horizontal])
-                .padding([.vertical], 5)
+                ScrollView(.horizontal, showsIndicators: false) {
+                   HStack {
+                       NavTabButton(title: "Workouts", isSelected: $selectedTab, tag: 1)
+                       NavTabButton(title: "Calendar", isSelected: $selectedTab, tag: 2)
+                       NavTabButton(title: "Settings", isSelected: $selectedTab, tag: 3)
+                   }
+                   .padding([.horizontal])
+                   .padding([.vertical], 5)
+               }
                 ScrollView {
                     switch selectedTab {
                     case 1:
@@ -34,13 +36,6 @@ struct ContentView: View {
             .background(Color(uiColor: hexStringToUIColor(hex: "#403d39")))
         }
         .background(Color(uiColor: hexStringToUIColor(hex: "#403d39")))
-//        .onAppear {
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-//            dateFormatter.timeZone = TimeZone.current
-//            print("isworkout", workoutViewModel.isWorkoutDay(dateFormatter.date(from: "2023-06-07 5:00")!))
-//            print("isworkout", workoutViewModel.isWorkoutDay(dateFormatter.date(from: "2023-06-07 12:00")!))
-//        }
     }
 }
 
@@ -56,6 +51,10 @@ struct NavTabButton: View {
         }) {
             Text(title)
                 .foregroundColor(isSelected == tag ? Color(uiColor: hexStringToUIColor(hex: "#FFFFFF")) : Color(uiColor: hexStringToUIColor(hex: "#878787")))
+                .padding([.horizontal], 23)
+                .padding([.vertical], 8)
+                .background(isSelected == tag ? Color(uiColor: hexStringToUIColor(hex: "#0a0a0a")) : Color(uiColor: hexStringToUIColor(hex: "#252422")))
+                .cornerRadius(100)
         }
     }
 }

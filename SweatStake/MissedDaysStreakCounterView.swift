@@ -1,5 +1,5 @@
 //
-//  WorkoutCounterView.swift
+//  MissedDaysCounterView.swift
 //  SweatStake
 //
 //  Created by Hayden Carpenter on 11/25/23.
@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct WorkoutCounterView: View {
-    let totalHours: Int
-    let avgWorkoutLength: TimeInterval
+struct MissedDaysStreakCounterView: View {
+    let missedDays: Int
+    let penaltyPerDay: Int
 
     var body: some View {
         VStack {
@@ -18,15 +18,14 @@ struct WorkoutCounterView: View {
                 Spacer()
             }
             Spacer()
-            Text("\(totalHours) Total Hour\(Text(totalHours == 1 ? "" : "s"))")
-                .font(.title)
+            Text("$\(missedDays * penaltyPerDay)")
+                .font(.largeTitle)
                 .fontWeight(.bold)
+                .foregroundColor(missedDays > 0 ? .red : .green)
+            Text("\(Text("\(missedDays)").foregroundColor(missedDays > 0 ? .red : .green)) missed day\(Text(missedDays == 1 ? "" : "s")) this streak")
+                .font(.subheadline)
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
-
-            Text("Average Workout: \(TimeFormatter.shared.format(seconds: avgWorkoutLength) ?? "N/A")")
-                .font(.caption)
-                .foregroundColor(.white)
             Spacer()
         }
         .padding()

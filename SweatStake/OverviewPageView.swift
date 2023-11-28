@@ -19,13 +19,17 @@ struct OverviewPageView: View {
 
                 Spacer()
                 
-                MissedDaysCounterView(missedDays: workoutViewModel.missedDaysInStreak,
+//                MissedDaysStreakCounterView(missedDays: workoutViewModel.missedDaysInStreak,
+//                                      penaltyPerDay: workoutViewModel.getPenaltyPerDay())
+//                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                MissedDaysMonthCounterView(missedDays: workoutViewModel.missedDaysInMonth,
                                       penaltyPerDay: workoutViewModel.getPenaltyPerDay())
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+        
             
             HStack(spacing: 0) {
-                WorkoutHistoryChartView(workouts: workoutViewModel.workouts.compactMap { AnyWorkoutData($0) })
+                WorkoutHistoryChartView(workouts: workoutViewModel.workoutsInLatestStreak().compactMap { AnyWorkoutData($0) })
                     .padding()
                     .background(Color(uiColor: hexStringToUIColor(hex: "#252422")))
                     .cornerRadius(10)
@@ -40,7 +44,7 @@ struct OverviewPageView: View {
 //            }
 //            .cornerRadius(10)
             
-            WorkoutListView(workouts: workoutViewModel.workouts)
+            WorkoutListView(workoutViewModel: workoutViewModel)
         }.padding([.horizontal])
 //            .onAppear {
 //                        workoutViewModel.requestHealthKitAuthorization()

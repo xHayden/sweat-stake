@@ -16,6 +16,10 @@ extension MockWorkoutData {
         dateFormatter.timeZone = TimeZone.current
 
         return [
+            MockWorkoutData(id: UUID(), type: .running, duration: 2000, startDate: dateFormatter.date(from: "2023-11-27 08:01")!, endDate: Date()),
+            MockWorkoutData(id: UUID(), type: .running, duration: 2000, startDate: dateFormatter.date(from: "2023-11-27 02:01")!, endDate: Date()),
+            MockWorkoutData(id: UUID(), type: .running, duration: 2000, startDate: dateFormatter.date(from: "2023-11-25 00:01")!, endDate: Date()),
+            MockWorkoutData(id: UUID(), type: .running, duration: 2000, startDate: dateFormatter.date(from: "2023-11-24 21:00")!, endDate: Date()),
             MockWorkoutData(id: UUID(), type: .running, duration: 3000, startDate: dateFormatter.date(from: "2023-11-24 20:00")!, endDate: Date()), // 11-24 10 AM
             MockWorkoutData(id: UUID(), type: .cycling, duration: 7200, startDate: dateFormatter.date(from: "2023-11-22 09:00")!, endDate: dateFormatter.date(from: "2023-11-23 09:00")!), // 4 AM
             MockWorkoutData(id: UUID(), type: .yoga, duration: 1800, startDate: dateFormatter.date(from: "2023-11-20 08:00")!, endDate: dateFormatter.date(from: "2023-11-21 08:00")!), // 3 AM

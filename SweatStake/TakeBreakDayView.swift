@@ -21,7 +21,7 @@ struct TakeBreakDayView: View {
                     workoutViewModel.unmarkDayAsBreakDay(date: Date())
                 }
             }) {
-                Text(isBreakDay ? "You're only cheating yourself" : "Take a Break")
+                Text(isBreakDay ? "You're only cheating yourself" : "Make today a break day")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity) // Makes the button stretch
                     .padding() // Padding inside the button

@@ -54,7 +54,7 @@ struct WorkoutHistoryChartView: View {
         })
         
         .chartXAxis {
-            AxisMarks {
+            AxisMarks(values: .stride(by: .day, roundUpperBound: true)) {
                 AxisValueLabel()
                     .foregroundStyle(Color(uiColor: hexStringToUIColor(hex: "#feeafa")))
             }

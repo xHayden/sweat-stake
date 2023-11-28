@@ -15,15 +15,17 @@ class WorkoutViewModel: ObservableObject {
     @Published var workouts: [WorkoutDataProtocol] = []
     @Published var customBreakDays: Set<Date> = []
     @Published var automaticBreakDays: Set<Date> = []
-    private var streaks: [[Date]] = []
+    @Published var hideEmptyMonths: Bool = false
+    @Published var streaks: [[Date]] = []
     private var dayStatusInStreaks: [Date: Bool] = [:]
     
     init(workouts: [WorkoutDataProtocol] = []) {
         self.workouts = workouts
         self.healthStore = HKHealthStore.isHealthDataAvailable() ? HKHealthStore() : nil
         self.requestHealthKitAuthorization()
-        self.loadBreakDays()
         self.calculateAndStoreStreaks()
+        self.loadBreakDays()
+        self.loadConfig()
     }
     
     var totalWorkoutHoursThisMonth: Int {
@@ -77,6 +79,24 @@ class WorkoutViewModel: ObservableObject {
         return filteredWorkouts.isEmpty ? 0 : totalDuration / Double(filteredWorkouts.count)
     }
     
+    func workoutsInLatestStreak() -> [WorkoutDataProtocol] {
+        guard let latestStreak = streaks.last else {
+            return []
+        }
+        // Convert streak dates to start of each day for comparison
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone.current
+        let streakStartDays = latestStreak.map { calendar.startOfDay(for: $0) }
+
+        // Filter workouts that fall within the latest streak
+        let filteredWorkouts = workouts.filter { workout in
+            guard let workoutDate = workout.startDate else { return false }
+            let startOfDay = calendar.startOfDay(for: workoutDate)
+            return streakStartDays.contains(startOfDay)
+        }
+        return filteredWorkouts
+    }
+    
     func streakLength() -> Int {
         var calendar = Calendar.current
         calendar.timeZone = TimeZone.current
@@ -106,6 +126,38 @@ class WorkoutViewModel: ObservableObject {
         return streakDays
     }
     
+    func streakLength(upTo date: Date) -> Int {
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone.current
+
+        for streak in streaks {
+            if let firstDateInStreak = streak.first,
+               let lastDateInStreak = streak.last,
+               date >= firstDateInStreak && date <= lastDateInStreak {
+                
+                var count = 0
+                var currentDate = firstDateInStreak
+                while currentDate <= date {
+                    // THIS IS FLAWED, I KNOW. :(
+                    // It's flawed because a workout can be before 3 am and then not count as this day's workout even if there's a workout on the previous day.
+                    let checkTime = calendar.date(bySettingHour: 12, minute: 0, second: 0, of: currentDate)!
+                    
+                    if isWorkoutDay(checkTime) == .WORKOUT_DAY {
+                        count += 1
+                    }
+                    
+                    // Move to the next day
+                    currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
+                }
+                return count
+            }
+        }
+
+        return 0
+    }
+
+
+    
     var missedDaysInStreak: Int {
         let streakLength = streakLength()
         var calendar = Calendar.current
@@ -125,6 +177,17 @@ class WorkoutViewModel: ObservableObject {
             }
         }
         return missedDays
+    }
+    
+    var missedDaysInMonth: Int {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        let year = calendar.component(.year, from: currentDate)
+        let month = calendar.component(.month, from: currentDate)
+        let monthYearKey = "\(year)-\(String(format: "%02d", month))"
+
+        let missedWorkouts = missedWorkoutsByMonth()
+        return missedWorkouts[monthYearKey]?.missedDays ?? 0
     }
     
     
@@ -216,35 +279,37 @@ class WorkoutViewModel: ObservableObject {
         var calendar = Calendar.current
         calendar.timeZone = TimeZone.current
         var workoutsPerMonth = [String: (missedDays: Int, streakDays: Int)]()
+        // Check if there are no streaks, return an empty array
+        guard let firstDate = streaks.first?.first else { return workoutsPerMonth }
 
-        let streaks = calculateStreaks()
+        // Set the end date to the current date
+        let endDate = Date()
 
-        for streak in streaks {
-            guard let firstDate = streak.first, let lastDate = streak.last else { continue }
+        // Start from the first day of the first streak
+        var currentDate = firstDate
 
-            var currentDate = firstDate
-            while currentDate <= lastDate {
-                let year = calendar.component(.year, from: currentDate)
-                let month = calendar.component(.month, from: currentDate)
-                let monthYearKey = "\(year)-\(String(format: "%02d", month))"
+        while currentDate <= endDate {
+            let year = calendar.component(.year, from: currentDate)
+            let month = calendar.component(.month, from: currentDate)
+            let monthYearKey = "\(year)-\(String(format: "%02d", month))"
 
-                if workoutsPerMonth[monthYearKey] == nil {
-                    workoutsPerMonth[monthYearKey] = (missedDays: 0, streakDays: 0)
-                }
-                
-                let workoutDayStatus = isWorkoutDay(currentDate)
-                if (workoutDayStatus == .WORKOUT_DAY) {
-                    workoutsPerMonth[monthYearKey]?.streakDays += 1
-                } else if (workoutDayStatus == .MISSED_DAY) {
-                    workoutsPerMonth[monthYearKey]?.missedDays += 1
-                }
-
-                currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
+            if workoutsPerMonth[monthYearKey] == nil {
+                workoutsPerMonth[monthYearKey] = (missedDays: 0, streakDays: 0)
             }
-        }
 
+            let workoutDayStatus = isWorkoutDay(currentDate)
+            if (workoutDayStatus == .WORKOUT_DAY) {
+                workoutsPerMonth[monthYearKey]?.streakDays += 1
+            } else if (workoutDayStatus == .MISSED_DAY) {
+                workoutsPerMonth[monthYearKey]?.missedDays += 1
+            }
+
+            // Move to the next day
+            currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
+        }
         return workoutsPerMonth
     }
+
 
     
     func calculateStreaks() -> [[Date]] {
@@ -292,8 +357,7 @@ class WorkoutViewModel: ObservableObject {
             for day in streak {
                 dayStatusInStreaks[day] = workouts.contains { $0.startDate == day }
             }
-        }
-    }
+        }    }
     
     private func hasBreakDaysInWeek(date: Date, numberOfBreakDays: Int) -> Bool {
         var calendar = Calendar.current
@@ -418,6 +482,42 @@ class WorkoutViewModel: ObservableObject {
         
         // Date is outside the range of all streaks and isn't up to the current day
         return WorkoutDayStatus.NOT_IN_STREAK
+    }
+    
+    struct Config {
+        let hideEmptyMonths: Bool = false
+        let penaltyPerDay: Int = 20
+        let breakDaysPerWeek: Int = 0;
+    }
+    
+    public func toggleHideEmptyMonths() {
+        self.hideEmptyMonths = !self.hideEmptyMonths;
+    }
+    
+    public func saveSettings() {
+        self.saveConfig()
+    }
+    
+    private func saveConfig() {
+        let config: [String: Any] = [
+            "hideEmptyMonths": self.hideEmptyMonths,
+            "penaltyPerDay": self.penaltyPerDay,
+            "breakDaysPerWeek": self.breakDaysPerWeek
+        ]
+        UserDefaults.standard.set(config, forKey: "config")
+    }
+
+    private func loadConfig() {
+        if let config = UserDefaults.standard.dictionary(forKey: "config") {
+            self.hideEmptyMonths = config["hideEmptyMonths"] as? Bool ?? false
+            self.penaltyPerDay = config["penaltyPerDay"] as? Int ?? 20
+            self.breakDaysPerWeek = config["breakDaysPerWeek"] as? Int ?? 0
+        } else {
+            // Apply default configuration if none is found in UserDefaults
+            self.hideEmptyMonths = false
+            self.penaltyPerDay = 20
+            self.breakDaysPerWeek = 0
+        }
     }
     
     func markDayAsAutomaticBreakDay(date: Date) {
